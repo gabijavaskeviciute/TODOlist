@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Mano užduotys</h1>
+
+    {% if uzduotis_list %}
+    <ul>
+
+      {% for uzduotis in uzduotis_list %}
+      <li>
+        <a href="{% url 'uzduotis_detail' uzduotis.pk %}">{{ uzduotis.uzduoties_tekstas }}</a> ({{ uzduotis.data }})
+      </li>
+
+      {% endfor %}
+    </ul>
+
+    {% else %}
+      <p>Šiuo metu neturite užduočių.</p>
+    {% endif %}
+{% endblock %}
